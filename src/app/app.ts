@@ -46,7 +46,7 @@ app.use(pass.session())
 app.use(cors())
 
 if (nodeEnv === 'dev') {
-  morgan('dev')
+  app.use(morgan('dev'))
 }
 
 app.set('views', join(process.cwd(), 'views'))
