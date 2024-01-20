@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "ChatApp with TypeScript and SCSS",
   "main": "index.js",
-  "type": "module",
+  "type": "commonjs",
   "scripts": {
     "start": "cross-env NODE_ENV=prod node build/app",
     "dev": "concurrently --kill-others \"sass --watch scss/:public/css\" \"cross-env NODE_ENV=dev tsnodemon -x 'node build/app'\"",
