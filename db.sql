@@ -1,0 +1,21 @@
+CREATE DATABASE IF NOT EXISTS `chat_db`;
+
+USE `chat_db`;
+
+CREATE TABLE IF NOT EXISTS `users`
+(
+  id CHAR(36) PRIMARY KEY DEFAULT(UUID()),
+  username VARCHAR(255) NOT NULL,
+  email VARCHAR(255) NOT NULL UNIQUE,
+  password VARCHAR(500) NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS `messages`
+(
+  id INT PRIMARY KEY AUTO_INCREMENT,
+  from_user CHAR(36) NOT NULL,
+  to_user CHAR(36) NOT NULL,
+  content TEXT,
+  created_at TIMESTAMP DEFAULT(CURRENT_TIMESTAMP),
+  FOREIGN KEY (from_user) REFERENCES users(id)
+);
